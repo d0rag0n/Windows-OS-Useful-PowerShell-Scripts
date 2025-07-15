@@ -11,7 +11,7 @@
 
 try
 {
-    Remove-AppxProvisionedPackage -AllUsers -Online -PackageName (Get-AppxPackage Microsoft.OutlookForWindows).PackageFullName -EA Stop | Out-NUll
+    Remove-AppxProvisionedPackage -AllUsers -Online -PackageName (Get-AppxPackage Microsoft.OutlookForWindows -AllUsers).PackageFullName -EA Stop | Out-NUll
     Remove-Item -LiteralPath "HKLM:\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\Orchestrator\UScheduler_Oobe\OutlookUpdate" -Recurse -Force -EA Stop | Out-NUll
     Write-Host "Remediation succesfully executed."
 }
